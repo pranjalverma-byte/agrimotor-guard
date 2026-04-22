@@ -1,0 +1,42 @@
+type TemperatureAlert = 
+ record {
+   message: text;
+   motorId: MotorId;
+   temperature: TempCelsius;
+   threshold: TempCelsius;
+ };
+type TempPrediction = 
+ record {
+   dataPoints: vec TempDataPoint;
+   horizon: nat;
+   motorId: MotorId;
+ };
+type TempDataPoint = 
+ record {
+   minutesFromNow: nat;
+   temperature: TempCelsius;
+ };
+type TempCelsius = float64;
+type MotorStatus = 
+ record {
+   id: MotorId;
+   isOn: bool;
+   temperature: TempCelsius;
+ };
+type MotorId = nat;
+type DeviceInfo = 
+ record {
+   connected: bool;
+   id: DeviceId;
+   name: text;
+   signalStrength: nat;
+ };
+type DeviceId = text;
+service : {
+  getDevices: () -> (vec DeviceInfo) query;
+  getMotors: () -> (vec MotorStatus);
+  getTempPrediction: (motorId: nat, horizon: nat) -> (TempPrediction) query;
+  getTemperatureAlerts: () -> (vec TemperatureAlert) query;
+  refreshDevices: () -> (vec DeviceInfo);
+  switchMotor: () -> ();
+}

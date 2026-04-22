@@ -1,0 +1,25 @@
+{
+  "overview": "A professional IoT dashboard for monitoring and controlling DC motors used in agricultural electric fencing to prevent wildlife attacks. Features real-time motor status cards, temperature monitoring with predictive insights, manual motor switching, overheating alerts, and ESP device connectivity management — all in a minimal Apple-inspired UI.",
+  "features": [
+    "Real-time motor status cards with ON/OFF indicators and live temperature",
+    "Temperature prediction with 15min/30min/1h/2h forecasts and animated charts",
+    "One-click motor switching with visual feedback animations",
+    "Overheating alert system with red warning cards",
+    "ESP device connections page with signal strength indicators",
+    "Dark mode toggle with light/dark theme persistence",
+    "Apple-inspired minimal UI with smooth transitions and micro-animations",
+    "Responsive design — desktop-first with mobile support"
+  ],
+  "category": "productivity",
+  "tags": [
+    "iot",
+    "dashboard",
+    "motor-control",
+    "agriculture",
+    "monitoring",
+    "real-time",
+    "temperature",
+    "electric-fencing"
+  ],
+  "last_updated": "2026-04-22T11:43:17.886Z"
+}

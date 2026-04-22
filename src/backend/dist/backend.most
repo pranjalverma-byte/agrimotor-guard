@@ -1,0 +1,38 @@
+// Version: 1.0.0
+type DeviceId__43858647 = DeviceId__795919761;
+type DeviceId__795919761 = Text;
+type DeviceState__1004418758 =
+  {
+    var connected : Bool;
+    id : DeviceId__43858647;
+    name : Text;
+    var signalStrength : Nat
+  };
+type DeviceState__389894017 = DeviceState__1004418758;
+type MotorId__133053892 = MotorId__960086465;
+type MotorId__960086465 = Nat;
+type MotorState__605815301 =
+  {
+    id : MotorId__133053892;
+    var isOn : Bool;
+    var temperature : TempCelsius__28692000
+  };
+type MotorState__645120056 = MotorState__605815301;
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type TempCelsius__28692000 = TempCelsius__80875100;
+type TempCelsius__80875100 = Float;
+actor {
+  stable devices :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?DeviceState__389894017]];
+      var elementIndex : Nat__490723111
+    };
+  stable motors :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?MotorState__645120056]];
+      var elementIndex : Nat__490723111
+    }
+};
