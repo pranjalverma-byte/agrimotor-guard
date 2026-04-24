@@ -12,6 +12,7 @@ export function NavBar() {
   const matchRoute = useMatchRoute();
   const isDashboard = matchRoute({ to: "/dashboard" });
   const isConnections = matchRoute({ to: "/connections" });
+  const isMath = matchRoute({ to: "/math" });
   const alerts = useMotorStore((s) => s.alerts);
   const devices = useDeviceStore((s) => s.devices);
   const onlineCount = devices.filter((d) => d.connected).length;
@@ -19,6 +20,7 @@ export function NavBar() {
   const navLinks = [
     { to: "/dashboard", label: "Dashboard", active: isDashboard },
     { to: "/connections", label: "Connections", active: isConnections },
+    { to: "/math", label: "Math Used", active: isMath },
   ];
 
   return (

@@ -194,12 +194,14 @@ function MotorCard({ motorId }: MotorCardProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: (motorId - 1) * 0.1 }}
       className={cn(
-        "bg-card rounded-2xl border p-5 shadow-card transition-smooth",
-        isOverheat
-          ? "border-destructive/50 ring-1 ring-destructive/20"
-          : isWarming
-            ? "border-accent/40"
-            : "border-border",
+        "bg-card rounded-2xl border p-5 transition-smooth",
+        motor.isOn
+          ? "border-secondary/60 ring-2 ring-secondary/40 shadow-[0_0_12px_2px_var(--color-secondary,#22c55e33)]"
+          : isOverheat
+            ? "border-destructive/50 ring-1 ring-destructive/20 shadow-card"
+            : isWarming
+              ? "border-accent/40 shadow-card"
+              : "border-border shadow-card",
       )}
       data-ocid={`motor.card.${motorId}`}
     >

@@ -13,6 +13,7 @@ import { Suspense, lazy } from "react";
 const LoginPage = lazy(() => import("@/pages/LoginPage"));
 const DashboardPage = lazy(() => import("@/pages/DashboardPage"));
 const ConnectionsPage = lazy(() => import("@/pages/ConnectionsPage"));
+const MathPage = lazy(() => import("@/pages/MathPage"));
 
 // Always authenticated — app opens directly on the dashboard
 function isAuthenticated(): boolean {
@@ -67,6 +68,16 @@ const connectionsRoute = createRoute({
   ),
 });
 
+const mathRoute = createRoute({
+  getParentRoute: () => protectedLayout,
+  path: "/math",
+  component: () => (
+    <Suspense fallback={<PageLoader />}>
+      <MathPage />
+    </Suspense>
+  ),
+});
+
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/",
@@ -78,7 +89,7 @@ const indexRoute = createRoute({
 const routeTree = rootRoute.addChildren([
   indexRoute,
   loginRoute,
-  protectedLayout.addChildren([dashboardRoute, connectionsRoute]),
+  protectedLayout.addChildren([dashboardRoute, connectionsRoute, mathRoute]),
 ]);
 
 const router = createRouter({ routeTree });
